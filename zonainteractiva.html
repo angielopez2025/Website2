@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x=icon" href="img/favicon_icono.png">
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css.map">
+    <link rel="stylesheet" href="estilo.css">
+    <title>TecnoServ</title>
+</head>
+<body>
+   
+  <header>
+    <nav>
+    <div class="logo">
+    <img src="img/img_logo.png" alt="">
+    <h2>INTELIGENCIA ARTIFICIAL</h2>
+    </div>
+    <nav class="navbar navbar-expand-lg style=background-color: #4863A0;">
+    <div class="container-fluid">
+    <ul class="nav justify-content-center">
+    <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="historia.html">Historia</a>
+    </li>
+    <a class="nav-link" href="objetivo.html">Objetivo</a>
+    </li>
+    </ul>
+    </div>
+    </nav>
+    </nav><br>
+ 
+    <div class="banner">
+    <img src="img/Banner-1.png" width="1250" height="500" alt="">
+    </div>
+</header><br>
+ 
+
+
+<section>
+
+
+  <aside>
+               
+                <ul>
+                    <li>¿Cómo funciona?</li>
+                    <li>¿Qué temas puede incluir?</li>
+                    <li>Ideal para</li>
+                    
+                    
+                </ul>
+</aside>
+<div class="contenedor">  
+<article>
+<br>
+<br><h5>¿Crees que sabes mucho sobre inteligencia artificial? ¡Demuéstralo en nuestro mini juego interactivo!</h5><br>
+ <h1 class="display-6">¿Cómo funciona?</h1><br>
+ Se te mostrará una pregunta relacionada con la IA y cuatro posibles respuestas.<br>
+Solo una opción es la correcta.<br>
+Haz clic en la que creas que es la mejor respuesta.<br>
+Recibirás una respuesta inmediata: "✅ Correcto" o "❌ Incorrecto", junto con la explicación o respuesta verdadera.<br>
+Luego puedes avanzar a la siguiente pregunta y seguir jugando.<br>
+
+<br><h1 class="display-6">¿Qué temas puede incluir?</h1><br>
+<li>Conceptos básicos de IA.</li><br>
+<li>Herramientas y tecnologías.</li><br>
+<li>Historia y evolución.</li><br>
+<li>Aplicaciones actuales.</li><br>
+<li>Ética y futuro de la IA.</li>
+
+<br><h1 class="display-6">Ideal para:</h1><br>
+<li>Estudiantes curiosos.</li><br>
+<li>Visitantes que quieren aprender jugando.</li><br>
+<li>Personas que solo quieren divertirse un rato aprendiendo.</li><br>
+
+<div style="font-family: sans-serif; max-width: 600px; margin: auto;">
+  <h2>¡Aprende de una forma mas divertida!</h2>
+  <div id="pregunta"></div>
+  <div id="opciones"></div>
+  <div id="resultado" style="margin-top: 10px; font-weight: bold;"></div>
+  <button onclick="siguientePregunta()" style="margin-top: 15px;">Siguiente</button>
+</div>
+
+<script>
+  const preguntas = [
+    {
+      texto: "¿Qué significa 'IA'?",
+      opciones: ["Inteligencia Analítica", "Información Artificial", "Inteligencia Artificial", "Internet Autónoma"],
+      correcta: 2
+    },
+    {
+      texto: "¿Cuál de estas es una aplicación de IA?",
+      opciones: ["Reconocimiento facial", "Cálculo de impuestos", "Relojes de sol", "Corte de madera"],
+      correcta: 0
+    },
+    {
+      texto: "¿Qué tipo de IA puede aprender por sí misma?",
+      opciones: ["IA Estática", "Aprendizaje automático (Machine Learning)", "IA Manual", "IA de papel"],
+      correcta: 1
+    },
+    {
+      texto: "Inteligencia Artificial desarrollada por OpenAI:",
+      opciones: ["Google", "Microsof Copilot", "ChatGPT", "Gemini"],
+      correcta: 2
+    },
+    {
+      texto: "¿Cual es una Ventaja de la IA?",
+      opciones: ["Personalización", "Desplazamiento laboral", "Privacidad y seguridad", "la segunda y la tercera"],
+      correcta: 0
+    },
+    {
+      texto: "¿Cuál de estas es una herramienta de código abierto para IA?",
+      opciones: ["Photoshop", "TensorFlow", "Excel", "Word"],
+      correcta: 1
+    }
+  ];
+
+  let preguntaActual = 0;
+
+  function mostrarPregunta() {
+    const p = preguntas[preguntaActual];
+    document.getElementById("pregunta").innerText = ` ${p.texto}`;
+    const opcionesDiv = document.getElementById("opciones");
+    opcionesDiv.innerHTML = "";
+    p.opciones.forEach((opcion, i) => {
+      const boton = document.createElement("button");
+      boton.innerText = opcion;
+      boton.style.margin = "5px";
+      boton.onclick = () => verificarRespuesta(i);
+      opcionesDiv.appendChild(boton);
+    });
+    document.getElementById("resultado").innerText = "";
+  }
+
+  function verificarRespuesta(indice) {
+    const correcta = preguntas[preguntaActual].correcta;
+    const mensaje = indice === correcta ? "✅ ¡Correcto!" : `❌ Incorrecto. La respuesta correcta es: "${preguntas[preguntaActual].opciones[correcta]}".`;
+    document.getElementById("resultado").innerText = mensaje;
+  }
+
+  function siguientePregunta() {
+    preguntaActual = (preguntaActual + 1) % preguntas.length;
+    mostrarPregunta();
+  }
+
+  // Mostrar la primera pregunta al cargar
+  mostrarPregunta();
+</script><br><br>
+
+</article>
+  </div>
+</section><br>
+
+
+  
+
+<footer>
+ <div class="footer">
+  <div class="container">
+    <div class="footer-content">
+
+  <div class="footer-links">
+    <h4>Legal</h4>
+    <ul>
+      <li><a href="privacidad.html">Politica de Privacidad</a></li>
+      <li><a href="Terminos.html">Terminos y condiciones</a></li>
+   </ul>
+</div>
+
+<div class="footer-links">
+    <h4>Recursos</h4>
+    <ul>
+      <li><a href="zonainteractiva.html">Zona interactiva</a></li>
+       <li><a href="error.html">¿Encontro un error?</a></li>
+    </ul>
+</div>
+
+<div class="footer-links">
+    <h4>Contacto</h4>
+
+    <div class="input-send">
+     <input type="email" placeholder="Ingresa tu correo">
+     <button type="submit">Eviar</button>
+    </div>
+
+    </div>
+    </div>
+
+    
+      <ul class="social-icon">
+      <li class="icon-elem">
+      <a href="https://www.youtube.com/" class="icon">
+      <ion-icon name="logo-youtube"></ion-icon></a>
+      </li>
+      <li class="icon-elem">
+      <a href="https://www.instagram.com/" class="icon">
+      <ion-icon name="logo-instagram"></ion-icon></a>
+      </li>
+      <li class="icon-elem">
+      <a href="https://web.whatsapp.com/" class="icon">
+      <ion-icon name="logo-whatsapp"></ion-icon></a>
+      </li>
+      <li class="icon-elem">
+      <a href="https://www.facebook.com/?_rdr" class="icon">
+      <ion-icon name="logo-facebook"></ion-icon></a>
+      </li>
+      <li class="icon-elem">
+      <a href="https://workspace.google.com/intl/es-419/gmail/" class="icon">
+      <ion-icon name="mail-outline"></ion-icon></a>
+      </li>
+      </ul>
+
+  
+   <p class="text">&COPY;2025 TecnoServ | Todos los derechos reservados</p>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</div>
+</div>
+</footer>
+
+
+
+   
+
+
+<script src="js/app.js"></script>
+<script src="js/bootstrap.min.js"></script>
+  
+</body>
+</html>
